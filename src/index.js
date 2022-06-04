@@ -28,6 +28,7 @@ function onInputFieldSearch(e) {
         
       if (data.length > 10) {
         Notify.info('Too many matches found. Please enter a more specific name.');
+        refs.inputField.requestFullscreen();
         return;
       }
 
@@ -50,7 +51,7 @@ function renderMarkup(countries) {
     refs.countryList.innerHTML = createPreviewMarkup(countries);
       refs.countryInfo.innerHTML = '';
     }
-  if(countries.length <= 1)  {
+  if(countries.length === 1)  {
     refs.countryInfo.innerHTML = createCountryInfoMarkup(countries);
       refs.countryList.innerHTML='';
   }
